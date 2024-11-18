@@ -1,85 +1,79 @@
-﻿<!DOCTYPE html>
+?
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Saidur Saqib - Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Miles Per Gallon Calculator</title>
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        body {
+            background-color: white;
+        }
+
+        .calculator-card {
+            background-color: beige;
+        }
+    </style>
 </head>
 <body>
     <header>
         <div class="header-content">
-            <img src="BoxS.jpg" alt="Your Logo" class="logo">
-            <h1>Saidur Saqib's Portfolio</h1>
+            <img src="../BoxS.jpg" alt="Your Logo" class="logo">
+            <h1>Miles Per Gallon Calculator</h1>
         </div>
-        <div class="menu-toggle" onclick="toggleMenu()"></div>
         <nav>
             <ul>
-                <li><a href="index.html" class="active-link">Home</a></li>
+                <li><a href="../index.html">Home</a></li>
                 <li class="dropdown">
-                    <a href="#" onclick="toggleDropdown(event)">Class Projects</a>
+                    <a href="#">Class Projects</a>
                     <ul class="dropdown-content">
-                        <li><a href="islamic_website/index.html">Islamic Website</a></li>
-                        <li><a href="mpg_calculator/index.html">Miles Per Gallon Calculator</a></li>
+                        <li><a href="../islamic_website/index.html">Islamic Website</a></li>
+                        <li><a href="../mpg_calculator/index.html">Miles Per Gallon Calculator</a></li>
+                        <li><a href="../mortgage_calculator/mortgage.htm">Mortgage Calculator</a></li>
                     </ul>
                 </li>
             </ul>
         </nav>
     </header>
 
-    <div class="container">
-
-        <!-- Slider Section Moved Above the H2 -->
-        <div class="slider-container">
-            <div class="slide">
-                <img src="FirstSemesterPic.jpg" alt="First Semester Picture">
-                <div class="caption">This is a picture from my first semester.</div>
+    <main class="calculator-container">
+        <div class="calculator-card">
+            <img src="calc.jpg" alt="Calculator Graphic" class="responsive-img">
+            <h2>Calculate Your Miles Per Gallon!</h2>
+            <div class="input-group">
+                <label for="miles">Miles Traveled:</label>
+                <input type="number" id="miles" placeholder="Enter miles traveled">
             </div>
-            <div class="slide">
-                <img src="Picw2frnds.JPG" alt="Picture with Two Friends">
-                <div class="caption">A moment with two friends during midterms week.</div>
+            <div class="input-group">
+                <label for="gallons">Gallons of Gas Used:</label>
+                <input type="number" id="gallons" placeholder="Enter gallons used">
             </div>
-            <div class="slide">
-                <img src="Picwfrndinlib.JPG" alt="Picture with Friend in Library">
-                <div class="caption">Chilling with a friend in the library.</div>
-            </div>
-            <div class="slide">
-                <img src="NorthHall.JPG" alt="North Hall Picture">
-                <div class="caption">The iconic North Hall at our campus.</div>
-            </div>
-
-            <!-- Navigation Arrows -->
-            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-            <a class="next" onclick="plusSlides(1)">&#10095;</a>
-
-            <!-- Dots for Navigation -->
-            <div class="dots">
-                <span class="dot" onclick="currentSlide(1)"></span>
-                <span class="dot" onclick="currentSlide(2)"></span>
-                <span class="dot" onclick="currentSlide(3)"></span>
-                <span class="dot" onclick="currentSlide(4)"></span>
-            </div>
+            <button onclick="calculateMPG()">Calculate MPG</button>
+            <div id="result" class="result"></div>
         </div>
-
-        <!-- Intro Section -->
-        <h2>Hey there, I'm Saidur!</h2>
-        <p style="text-align: left; font-weight: bold;">
-            Welcome to my personal page! I'm Saidur Saqib, a 21-year-old student currently studying Computer Information Systems at Bronx Community College. My passion for technology goes beyond the classroom because I’m constantly exploring new skills, tools, and concepts to deepen my understanding of how technology shapes our world. Here, you’ll find a collection of my projects, from class assignments to personal ventures that reflect my interests in web development, programming, and problem-solving. Each project represents a milestone in my learning journey, and I’m thrilled to share them with you.
-        </p>
-        <p style="text-align: left; font-weight: bold;">
-            As I work toward a career in tech, I’m motivated by the endless possibilities for innovation and the chance to create solutions that can make a difference. Through this portfolio, I hope to connect with others who share my enthusiasm for technology, as well as potential collaborators, mentors, and fellow learners. Thank you for visiting and I invite you to explore my work and reach out if you’d like to connect!
-        </p>
-
-    </div>
+    </main>
 
     <footer>
         <p>&copy; All Rights Reserved 2024</p>
     </footer>
 
 
-    <script src="main.js"></script>
+    <script src="../main.js"></script>
     <script>
         document.getElementById("year").textContent = new Date().getFullYear();
+
+        function calculateMPG() {
+            const miles = parseFloat(document.getElementById("miles").value);
+            const gallons = parseFloat(document.getElementById("gallons").value);
+
+            if (!isNaN(miles) && !isNaN(gallons) && gallons > 0) {
+                const mpg = (miles / gallons).toFixed(2);
+                document.getElementById("result").textContent = `Miles per Gallon: ${mpg}`;
+            } else {
+                document.getElementById("result").textContent = "Please enter valid numbers.";
+            }
+        }
     </script>
 </body>
 </html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social News Program</title>
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        
+        .container {
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        
+        .btn-primary {
+            background: linear-gradient(45deg, #4CAF50, #81C784);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            padding: 12px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-bottom: 10px;
+            width: 90%;
+            max-width: 300px;
+        }
+
+            .btn-primary:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+            }
+
+        .btn-danger {
+            background: linear-gradient(45deg, #E53935, #FF7043);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            padding: 12px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 90%;
+            max-width: 300px;
+        }
+
+            .btn-danger:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+            }
+
+        
+        .content-card {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px auto;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            font-size: 1rem;
+            color: #444;
+            text-align: center;
+            font-style: italic;
+            transition: all 0.3s ease;
+        }
+
+            .content-card:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+            }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <img src="../BoxS.jpg" alt="Your Logo" class="logo">
+            <h1>Social News Program</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li class="dropdown">
+                    <a href="#" onclick="toggleDropdown()">Class Projects</a>
+                    <ul class="dropdown-content">
+                        <li><a href="../islamic_website/index.html">Islamic Website</a></li>
+                        <li><a href="../mpg_calculator/index.html">Miles Per Gallon Calculator</a></li>
+                        <li><a href="../mortgage_calculator/mortgage.htm">Mortgage Calculator</a></li>
+                        <li><a href="../invoice_calculator/invoice.html">Invoice Calculator</a></li>
+                        <li><a href="social.html" class="active-link">Social News Program</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+
+    </header>
+
+    <main>
+        <div class="container">
+            <h2>Main Menu</h2>
+            <div class="button-container">
+                <button class="btn-primary" onclick="showLinks()">Show Links</button>
+                <button class="btn-primary" onclick="addLink()">Add a Link</button>
+                <button class="btn-danger" onclick="removeLink()">Remove a Link</button>
+            </div>
+            <div id="content" class="content-card">No links available. Add some links to see them here.</div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; All Rights Reserved 2024</p>
+    </footer>
+
+    <script src="social-script.js"></script>
+    <script>
+        function toggleDropdown() {
+            const dropdown = document.querySelector('.dropdown');
+            dropdown.classList.toggle('open'); // Toggles the 'open' class to show/hide dropdown
+        }
+
+        
+        document.addEventListener('click', function (event) {
+            const dropdown = document.querySelector('.dropdown');
+            const isClickInside = dropdown.contains(event.target);
+
+            if (!isClickInside) {
+                dropdown.classList.remove('open'); 
+            }
+        });
+    </script>
+
+</body>
+</html>

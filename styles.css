@@ -1,0 +1,809 @@
+﻿html, body {
+    font-family: Arial, sans-serif;
+    background-color: beige;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    overflow-y: auto; 
+    min-height: 100vh; 
+}
+
+
+header {
+    background-color: beige;
+    padding: 20px;
+    color: #333;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo {
+    max-width: 150px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+header h1 {
+    font-size: 1.8em;
+    margin: 0;
+    color: #333;
+}
+
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0 0;
+    display: flex;
+    justify-content: center;
+}
+
+    nav ul li {
+        position: relative;
+        margin: 0 15px;
+    }
+
+        nav ul li a {
+            color: black;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: darkgrey;
+    list-style: none;
+    width: 200px;
+    border-radius: 4px;
+    padding: 10px;
+    z-index: 10;
+}
+
+    .dropdown-content li a {
+        display: block;
+        color: #333;
+        text-decoration: none;
+        padding: 8px 12px;
+    }
+
+        .dropdown-content li a:hover {
+            background-color: #f0e68c;
+            color: #333;
+            border-radius: 5px;
+        }
+
+.dropdown.open .dropdown-content {
+    display: block;
+}
+
+
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    text-align: center;
+}
+
+
+.responsive-img {
+    width: 100%;
+    max-width: 150px;
+    height: auto;
+    border-radius: 50%;
+    margin: 20px auto;
+}
+
+
+.slider-container {
+    max-width: 800px;
+    margin: 20px auto;
+    position: relative;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+    .slider-container img {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+        display: block;
+        transition: opacity 0.5s ease-in-out;
+    }
+
+
+.caption {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1em;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.slide:hover .caption {
+    opacity: 1;
+}
+
+
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    color: white;
+    font-size: 2em;
+    padding: 10px;
+    cursor: pointer;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    text-align: center;
+    transition: background-color 0.3s ease;
+    user-select: none;
+}
+
+    .prev:hover, .next:hover {
+        background-color: rgba(0, 0, 0, 0.8);
+    }
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+
+.dots {
+    text-align: center;
+    padding: 15px 0;
+    background-color: #333;
+}
+
+.dot {
+    cursor: pointer;
+    height: 12px;
+    width: 12px;
+    margin: 0 5px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.4s ease;
+}
+
+    .dot.active, .dot:hover {
+        background-color: #717171;
+    }
+
+.container {
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch; 
+}
+
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: beige;
+    color: black;
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
+    margin-top: 20px;
+}
+
+
+.calculator-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+}
+
+.calculator-card {
+    background-color: #ffffff;
+    padding: 30px;
+    max-width: 400px;
+    width: 100%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    text-align: center;
+}
+
+    .calculator-card h2 {
+        margin-bottom: 20px;
+        color: #333;
+        font-size: 1.5em;
+    }
+
+/* Input Group */
+.input-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+    .input-group label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 5px;
+        color: #555;
+    }
+
+    .input-group input {
+        width: 100%;
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+        font-size: 1em;
+    }
+
+
+button {
+    width: 100%;
+    padding: 12px;
+    font-size: 1em;
+    border-radius: 5px;
+    border: none;
+    color: #fff;
+    background-color: #333;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+    button:hover {
+        background-color: #555;
+    }
+
+
+.result {
+    margin-top: 20px;
+    font-weight: bold;
+    font-size: 1.2em;
+    color: #333;
+}
+
+ul, ol {
+    text-align: left;
+    padding-left: 20px; 
+    margin-left: 0; 
+}
+
+
+body, html {
+    overflow-x: hidden; 
+}
+.islamic-page .container, .islamic-page .slider-container, .islamic-page .centered-image {
+    max-width: 100%;
+    overflow-x: hidden; 
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+.islamic-page .container {
+    max-width: 1000px;
+    margin: 20px auto;
+    padding: 15px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    text-align: center;
+}
+
+.calculator-card {
+    background-color: #ffffff;
+    padding: 40px;
+    max-width: 500px; 
+    width: 100%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    text-align: center;
+    margin: 0 auto; 
+}
+
+.input-group input {
+    width: 80%; 
+    padding: 8px;
+    font-size: 0.9em; 
+    margin: 5px auto; 
+    display: block;
+}
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+    display: none; 
+    position: absolute;
+    top: 100%; 
+    left: 0;
+    background-color: darkgrey;
+    list-style: none;
+    width: 200px;
+    border-radius: 4px;
+    padding: 10px;
+    z-index: 10;
+}
+
+    .dropdown-content li {
+        margin: 0;
+    }
+
+        .dropdown-content li a {
+            display: block;
+            color: #333;
+            text-decoration: none;
+            padding: 8px 12px;
+        }
+
+            .dropdown-content li a:hover {
+                background-color: #f0e68c;
+                color: #333;
+                border-radius: 5px;
+            }
+
+.dropdown.open .dropdown-content {
+    display: block; /* Show dropdown when .open is applied */
+}
+/* Dropdown Styling */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+    display: none; /* Hidden by default */
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: darkgrey;
+    list-style: none;
+    width: 200px;
+    border-radius: 4px;
+    padding: 10px;
+    z-index: 10;
+}
+
+    .dropdown-content li {
+        margin: 0;
+    }
+
+        .dropdown-content li a {
+            display: block;
+            color: #333;
+            text-decoration: none;
+            padding: 8px 12px;
+        }
+
+            .dropdown-content li a:hover {
+                background-color: #f0e68c;
+                color: #333;
+                border-radius: 5px;
+            }
+
+.dropdown.open .dropdown-content {
+    display: block; /* Show dropdown when .open is applied */
+}
+.text-container {
+    max-width: 800px; /* Limits the text to 800px width */
+    margin: 0 auto; /* Centers the container */
+    padding: 20px; /* Adds some padding around the text */
+    text-align: justify; /* Optional: Justifies the text for a clean look */
+}
+.text-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: justify;
+}
+
+@media (max-width: 768px) {
+    .text-container {
+        max-width: 90%; /* Allows the container to shrink on smaller screens */
+        padding: 15px;
+    }
+}
+.text-container {
+    font-size: 16px;
+    line-height: 1.6; /* Adds space between lines for better readability */
+}
+h2 {
+    text-align: center;
+}
+/* Styling for Calculator Container */
+.calculator-card {
+    background-color: beige;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 500px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* Styling for the Form Table */
+.calculator-table {
+    margin: 20px auto;
+    width: 100%;
+    border-spacing: 10px;
+}
+
+    .calculator-table td {
+        text-align: left;
+        vertical-align: middle;
+        padding: 5px;
+    }
+
+    /* Styling for Input Fields */
+    .calculator-table input[type="text"],
+    .calculator-table select {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 14px;
+    }
+
+/* Button Styling */
+.button-row {
+    text-align: center;
+    padding-top: 10px;
+}
+
+.calculate-btn,
+.reset-btn {
+    padding: 10px 15px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.calculate-btn {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.reset-btn {
+    background-color: #f44336;
+    color: white;
+}
+
+.calculate-btn:hover {
+    background-color: #45a049;
+}
+
+.reset-btn:hover {
+    background-color: #d32f2f;
+}
+
+/* Styling for Result */
+.result {
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+.result {
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+.calculate-btn,
+.reset-btn {
+    padding: 10px 15px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.calculate-btn {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.reset-btn {
+    background-color: #f44336;
+    color: white;
+}
+
+.calculate-btn:hover {
+    background-color: #45a049;
+}
+
+.reset-btn:hover {
+    background-color: #d32f2f;
+}
+@media (max-width: 768px) {
+    .calculator-card {
+        padding: 15px;
+        max-width: 90%;
+    }
+
+    .calculator-table {
+        width: 100%;
+    }
+
+        .calculator-table td {
+            padding: 10px 5px;
+        }
+}
+.calculator-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh; /* Centers content vertically */
+    padding: 20px; /* Adds spacing on smaller screens */
+}
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px; /* Adds space between the logo and title */
+    margin-bottom: 10px; /* Adds some space below the header */
+}
+
+header h1 {
+    font-size: 2em; /* Increases the title size */
+    color: #333;
+}
+.calculate-btn,
+.reset-btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.calculate-btn {
+    background-color: #28a745;
+    color: white;
+}
+
+.reset-btn {
+    background-color: #dc3545;
+    color: white;
+}
+
+    .calculate-btn:hover,
+    .reset-btn:hover {
+        transform: scale(1.1);
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    }
+header {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+footer {
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    text-align: center;
+    background-color: beige;
+}
+.content-card {
+    background-color: beige; /* Beige background */
+    border-radius: 8px; /* Rounded corners */
+    padding: 20px; /* Internal spacing */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    max-width: 800px; /* Limits the width */
+    margin: 20px auto; /* Centers the container horizontally */
+    text-align: left; /* Aligns text to the left */
+    font-size: 16px; /* Adjust text size for readability */
+    line-height: 1.6; /* Improves line spacing */
+}
+body {
+    background-color: beige; /* Set the background of the entire page to white */
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif; /* Optional: Ensure consistent font styling */
+}
+
+main {
+    background-color: white; /* Ensure the main content background is white */
+    padding: 20px 0; /* Add some spacing around the main content */
+}
+.image-container {
+    text-align: center; /* Center the image */
+    margin: 20px auto; /* Add spacing */
+}
+
+.quran-image {
+    width: 100%; /* Make the image responsive */
+    max-width: 500px; /* Set a max width so it doesn't get too large */
+    height: auto; /* Maintain the image aspect ratio */
+    border: 2px solid #ddd; /* Add a light border */
+    border-radius: 5px; /* Slightly rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow for visual appeal */
+}
+
+.image-caption {
+    font-style: italic;
+    font-size: 0.9em;
+    color: #555;
+    margin-top: 10px;
+}
+.image-container {
+    text-align: center; /* Center the image */
+    margin: 20px auto; /* Add spacing */
+}
+
+.teachings-image {
+    width: 100%; /* Responsive image */
+    max-width: 500px; /* Limit the size */
+    height: auto; /* Maintain aspect ratio */
+    border: 2px solid #ddd; /* Light border */
+    border-radius: 5px; /* Rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.image-caption {
+    font-style: italic;
+    font-size: 0.9em;
+    color: #555;
+    margin-top: 10px;
+}
+/* Contact Form Styling */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin: 20px auto;
+    max-width: 600px;
+}
+
+    .contact-form label {
+        font-weight: bold;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 1em;
+    }
+
+    .contact-form textarea {
+        resize: vertical;
+    }
+
+.submit-btn {
+    background-color: #008000; /* Green color */
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1em;
+    transition: background-color 0.3s ease;
+}
+
+    .submit-btn:hover {
+        background-color: #006400; /* Darker green */
+    }
+
+/* Contact Information Styling */
+.contact-info {
+    margin-top: 30px;
+    text-align: center;
+}
+
+    .contact-info p {
+        margin: 5px 0;
+        font-size: 1em;
+        color: #333;
+    }
+
+    .contact-info h3 {
+        margin-bottom: 10px;
+    }
+.image-container {
+    text-align: center; /* Centers the image */
+    margin: 20px auto; /* Adds spacing around the image */
+}
+
+.welcome-image {
+    width: 100%; /* Makes the image responsive */
+    max-width: 700px; /* Limits the image size for larger screens */
+    height: auto; /* Maintains the image aspect ratio */
+    border: 2px solid #ddd; /* Adds a light border around the image */
+    border-radius: 10px; /* Softens the image corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow */
+}
+
+.image-caption {
+    font-style: italic;
+    color: #555;
+    margin-top: 10px;
+    font-size: 0.9em;
+}
+.about-image {
+    width: 100%; /* Responsive image */
+    max-width: 500px; /* Limit the size */
+    height: auto; /* Maintain aspect ratio */
+    border: 2px solid #ddd; /* Light border */
+    border-radius: 5px; /* Rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+/* Enhancements for Navigation Menu */
+
+/* Base styles for the navigation menu */
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /* Allows items to wrap on smaller screens */
+}
+
+    nav ul li {
+        margin: 0 10px; /* Adjust spacing based on your design needs */
+    }
+
+        nav ul li a {
+            color: black;
+            text-decoration: none;
+            padding: 10px 15px; /* Larger padding for better tap targets */
+            display: block; /* Ensures the full area is clickable */
+        }
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    nav ul {
+        justify-content: space-around; /* Ensures even spacing on smaller screens */
+    }
+
+        nav ul li {
+            flex: 1 1 auto; /* Allows each item to expand and take available space */
+        }
+
+            nav ul li a {
+                text-align: center; /* Ensures text is centered within each menu item */
+                padding: 10px 5px; /* Adjust padding for smaller screens */
+            }
+}
+
+/* Optional: Reduce font size for smaller screens */
+@media (max-width: 480px) {
+    nav ul li a {
+        font-size: 0.9em; /* Smaller font size for very small devices */
+    }
+}
+
+/* Enhance Accessibility and Interaction */
+nav ul li a:hover, nav ul li a:focus {
+    background-color: #f0f0f0; /* Light background on hover/focus for better visibility */
+    color: #333; /* Ensures contrast is adequate for readability */
+    transition: color 0.3s ease, background-color 0.3s ease; /* Smooth transition for visual feedback */
+}

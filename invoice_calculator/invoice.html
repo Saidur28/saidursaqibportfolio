@@ -1,0 +1,134 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoice Calculator - Saidur Saqib</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="invoice_styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <img src="../BoxS.jpg" alt="Your Logo" class="logo">
+            <h1>Saidur Saqib's Portfolio</h1>
+        </div>
+        <div class="menu-toggle" onclick="toggleMenu()"></div>
+        <nav>
+            <ul>
+                <li><a href="../index.html" class="active-link">Home</a></li>
+                <li class="dropdown">
+                    <a href="#">Class Projects</a>
+                    <ul class="dropdown-content">
+                        <li><a href="../islamic_website/index.html">Islamic Website</a></li>
+                        <li><a href="../mpg_calculator/index.html">Miles Per Gallon Calculator</a></li>
+                        <li><a href="../mortgage_calculator/mortgage.htm">Mortgage Calculator</a></li>
+                        <li><a href="../social_news_program/social.html">Social News Program</a></li>
+                        <li><a href="../responsive_social_media/social_media.html">Responsive Social Media</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Invoice Container -->
+    <div class="invoice-container">
+        <header>
+            <h1>Guidance Through Islam - Invoice</h1>
+            <p>Address: 2107 Davidson Ave, Bronx, NY 104533</p>
+            <p>Email: saidursaqib@gmail.com | Phone: 680-207-5831</p>
+        </header>
+        <h2>Invoice Calculator</h2>
+        <p>Date: <input type="date" id="invoice-date"></p>
+
+        <section class="billing-info">
+            <div>
+                <h3>Bill To</h3>
+                <label for="customer-name">Name:</label>
+                <input type="text" id="customer-name" placeholder="Enter customer name"><br>
+                <label for="customer-address">Address:</label>
+                <input type="text" id="customer-address" placeholder="Enter address"><br>
+                <label for="customer-phone">Phone:</label>
+                <input type="text" id="customer-phone" placeholder="Enter phone number">
+            </div>
+            <div>
+                <h3>For</h3>
+                <label for="purpose">Purpose:</label>
+                <input type="text" id="purpose" placeholder="Enter purpose">
+            </div>
+        </section>
+
+        <section class="items">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Item Description</th>
+                        <th>Amount</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+                <tbody id="items-table">
+                    <tr>
+                        <td>Quran Classes</td>
+                        <td><input type="number" value="0" class="item-amount"></td>
+                        <td>$<span class="item-price">0.00</span></td>
+                    </tr>
+                    <tr>
+                        <td>Islamic Books</td>
+                        <td><input type="number" value="0" class="item-amount"></td>
+                        <td>$<span class="item-price">0.00</span></td>
+                    </tr>
+                    <tr>
+                        <td>Prayer Mats</td>
+                        <td><input type="number" value="0" class="item-amount"></td>
+                        <td>$<span class="item-price">0.00</span></td>
+                    </tr>
+                    <tr>
+                        <td>Charity Meal Donation</td>
+                        <td><input type="number" value="0" class="item-amount"></td>
+                        <td>$<span class="item-price">0.00</span></td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </section>
+
+        <!-- Totals Section -->
+        <section class="totals">
+            <table class="totals-table">
+                <tr>
+                    <td>Subtotal</td>
+                    <td>$<span id="subtotal">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>Tax Rate (10%)</td>
+                    <td>$<span id="tax">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>Other Costs $</td>
+                    <td><input type="number" id="other-costs" value="0"></td>
+                </tr>
+                <tr class="total-row">
+                    <td><strong>Total Cost</strong></td>
+                    <td><strong>$<span id="total-cost">0.00</span></strong></td>
+                </tr>
+            </table>
+        </section>
+        <button id="calculate-btn">Calculate</button>
+    </div>
+    <div class="invoice-notes">
+        <p>Make all checks payable to Guidance Through Islam</p>
+        <p>If you have any questions concerning this invoice, use the following contact information:</p>
+        <p>Contact Name: Saidur Saqib | Phone: 680-207-5831 | Email: saidursaqib@gmail.com</p>
+        <p>Thank you for your business!</p>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; All Rights Reserved 2024</p>
+    </footer>
+
+    <script src="invoice_script.js"></script>
+</body>
+</html>

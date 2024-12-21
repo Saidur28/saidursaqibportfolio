@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Media App</title>
+    <link rel="stylesheet" href="social_media_styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+    <header>
+        <div class="menu-icon">☰</div>
+        <h1>Welcome to SocialStream</h1>
+        <nav class="navigation">
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="#postFormSection">Post Something</a></li>
+                <li><a href="#feedSection">View Feed</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="postFormSection">
+            <form id="postForm" aria-label="Post creation form">
+                <textarea id="postText" placeholder="What's on your mind?" aria-required="true"></textarea>
+                <button type="submit">Post</button>
+            </form>
+        </section>
+        <section id="feedSection" aria-labelledby="feedHeader">
+            <h2 id="feedHeader">Latest Posts</h2>
+            <div id="feed"></div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 All Rights Reserved</p>
+    </footer>
+    <script src="social_media_script.js"></script>
+</body>
+</html>
